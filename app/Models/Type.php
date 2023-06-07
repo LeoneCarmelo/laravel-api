@@ -11,7 +11,7 @@ class Type extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'slug'];
+    protected $fillable = ['name', 'slug', 'type_id'];
     //Every type has many projects
     public function projects(): HasMany
     {
