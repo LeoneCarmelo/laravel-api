@@ -7,6 +7,7 @@ use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Type;
+use App\Models\Technology;
 
 class ProjectController extends Controller
 {
@@ -32,6 +33,8 @@ class ProjectController extends Controller
         //Passing types to create
         $types = Type::orderByDesc('id')->get();
         //dd($types);
+        $technologies = Technology::orderByDesc('id')->get();
+        //dd($technologies);
         return view('admin.projects.create', compact('types'));
     }
 
