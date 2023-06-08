@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Http\Controllers\Controller;
+use App\Models\Project;
 use App\Models\Type;
 use App\Models\Technology;
 
@@ -35,7 +35,7 @@ class ProjectController extends Controller
         //dd($types);
         $technologies = Technology::orderByDesc('id')->get();
         //dd($technologies);
-        return view('admin.projects.create', compact('types'));
+        return view('admin.projects.create', compact('types', 'technologies'));
     }
 
     /**
@@ -52,10 +52,13 @@ class ProjectController extends Controller
         $slug = Project::generateSlug($val_data['title']);
         //dd($slug);
         $val_data['slug'] = $slug;
-
         //create new project
-        Project::create($val_data);
+        $new_project = Project::create($val_data);
         //redirect to index
+        if ($request->has('technologies')) {
+            $new_project->technologies()->attach($request->technologies);
+        }
+
         return to_route('admin.projects.index')->with('message', 'Project created.');
     }
 
@@ -80,7 +83,8 @@ class ProjectController extends Controller
     {
         $types = Type::orderByDesc('id')->get();
         //dd($types);
-        return view('admin.projects.edit', compact('project', 'types'));
+        $technologies = Technology::orderByDesc('id')->get();
+        return view('admin.projects.edit', compact('project', 'types', 'technologies'));
     }
 
     /**
@@ -94,10 +98,14 @@ class ProjectController extends Controller
     {
   
         $val_data = $request->validated();
+
         $slug = Project::generateSlug($val_data['title']);
         
         $val_data['slug'] = $slug;
-       
+
+        if ($request->has('technologies')) {
+            $project->technologies()->sync($request->technologies);
+        }
      
         //create new project
         $project->update($val_data);

@@ -3,7 +3,7 @@
 @section('mainDash')
 @if ($errors->any())
 <div class="alert alert-danger" role="alert">
-  
+
   <ul>
     @foreach ($errors->all() as $error)
     <li>{{$error}}</li>
@@ -47,7 +47,7 @@
   </div>
   <div class="mb-3">
     <label for="link_project" class="form-label">Link project</label>
-    <input type="text" name="link_project" id="link_project" class="form-control @error('link_project') is-invalid @enderror" placeholder="" aria-describedby="helpIdlink_project">
+    <input type="text" name="link_project" id="link_project" class="form-control @error('link_project') is-invalid @enderror" placeholder="" aria-describedby="helpIdlink_project" value="{{old('link_project', $project->link_project)}}">
     <small id="helpIdlink_project" class="text-muted">Insert the link of the project.</small>
     @error('link_project')
     <div class="alert alert-danger" role="alert">
@@ -57,7 +57,7 @@
   </div>
   <div class="mb-3">
     <label for="link_website" class="form-label">Link website</label>
-    <input type="text" name="link_website" id="link_website" class="form-control @error('link_website') is-invalid @enderror" placeholder="" aria-describedby="helpIdlink_website">
+    <input type="text" name="link_website" id="link_website" class="form-control @error('link_website') is-invalid @enderror" placeholder="" aria-describedby="helpIdlink_website"  value="{{old('link_website', $project->link_website)}}">
     <small id="helpIdlink_website" class="text-muted">Insert the link of the website.</small>
     @error('link_website')
     <div class="alert alert-danger" role="alert">
@@ -73,6 +73,26 @@
       <option value="{{$type->id}}" {{ $type->id == old('type_id', $project->type?->id) ? 'selected' : ''}}>{{$type->name}}</option>
       @endforeach
     </select>
+  </div>
+  <div class='form-group'>
+    <p>Select the tecnology:</p>
+    @foreach ($technologies as $technology)
+    <div class="form-check @error('technologies') is-invalid @enderror">
+      <label class='form-check-label'>
+        @if($errors->any())
+        <!-- 1 (if) -->
+        <input name="technologies[]" type="checkbox" value="{{ $technology->id}}" class="form-check-input" {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }}>
+        @else
+        <!-- 2 (else) -->
+        <input name='technologies[]' type='checkbox' value='{{ $technology->id }}' class='form-check-input' {{ $project->technologies?->contains($technology) ? 'checked' : '' }}>
+        @endif
+        {{ $technology->name }}
+      </label>
+    </div>
+    @endforeach
+    @error('technologies')
+    <div class='invalid-feedback'>{{ $message}}</div>
+    @enderror
   </div>
   <button type="submit" class="btn btn-primary">Update</button>
 </form>
