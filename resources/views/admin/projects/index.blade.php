@@ -40,7 +40,7 @@
                     </td>
                     <td scope="row"><a href="{{$project->link_project}}">{{$project->link_project}}</a></td>
                     <td scope="row"><a href="{{$project->link_website}}">{{$project->link_website}}</a></td>
-                    <td scope="row">{{$project->type?->id}}</td>
+                    <td scope="row">{{$project->type?->name}}</td>
                     <td scope="row">
                         <div class="d-flex flex-column align-items-center gap-2">
                             <a href="{{route('admin.projects.show', $project->slug)}}">

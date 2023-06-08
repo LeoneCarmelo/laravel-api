@@ -1,6 +1,17 @@
 @extends('admin.dashboard')
 
 @section('mainDash')
+@if ($errors->any())
+<div class="alert alert-danger" role="alert">
+  
+  <ul>
+    @foreach ($errors->all() as $error)
+    <li>{{$error}}</li>
+    @endforeach
+  </ul>
+</div>
+@endif
+
 <form action="{{route('admin.projects.update', $project->slug)}}" method="post" class="my-4">
   @csrf
   @method('PUT')
@@ -35,11 +46,31 @@
     @enderror
   </div>
   <div class="mb-3">
+    <label for="link_project" class="form-label">Link project</label>
+    <input type="text" name="link_project" id="link_project" class="form-control @error('link_project') is-invalid @enderror" placeholder="" aria-describedby="helpIdlink_project">
+    <small id="helpIdlink_project" class="text-muted">Insert the link of the project.</small>
+    @error('link_project')
+    <div class="alert alert-danger" role="alert">
+      <strong>Error: </strong> {{$message}}
+    </div>
+    @enderror
+  </div>
+  <div class="mb-3">
+    <label for="link_website" class="form-label">Link website</label>
+    <input type="text" name="link_website" id="link_website" class="form-control @error('link_website') is-invalid @enderror" placeholder="" aria-describedby="helpIdlink_website">
+    <small id="helpIdlink_website" class="text-muted">Insert the link of the website.</small>
+    @error('link_website')
+    <div class="alert alert-danger" role="alert">
+      <strong>Error: </strong> {{$message}}
+    </div>
+    @enderror
+  </div>
+  <div class="mb-3">
     <label for="type_id" class="form-label">Types</label>
     <select class="form-select @error('type_id') is-invalid @enderror" name="type_id" id="type_id">
       <option value>Select a type</option>
       @foreach ($types as $type)
-      <option value="{{$type->id}}" {{ $type->id == old('type_id', $project->type?->id) ? 'selected' : ''}} >{{$type->name}}</option>
+      <option value="{{$type->id}}" {{ $type->id == old('type_id', $project->type?->id) ? 'selected' : ''}}>{{$type->name}}</option>
       @endforeach
     </select>
   </div>

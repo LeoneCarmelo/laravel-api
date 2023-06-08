@@ -30,7 +30,7 @@ class UpdateProjectRequest extends FormRequest
             'description' => ['required', 'max:65535'],
             'link_project' => 'required|max:255',
             'link_website' => 'required|max:255',
-            'type_id' => 'exists:type_id,id'
+            'type_id' => 'exists:types,id'
         ];
     }
 }

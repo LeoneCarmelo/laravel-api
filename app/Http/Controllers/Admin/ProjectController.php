@@ -95,7 +95,7 @@ class ProjectController extends Controller
         
         $val_data['slug'] = $slug;
        
-
+     
         //create new project
         $project->update($val_data);
         //redirect to index
