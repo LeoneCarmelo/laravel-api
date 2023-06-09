@@ -15,7 +15,7 @@
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Title</th>
-                    <th scope="col">Total technologies</th>
+                    <th scope="col">Technologies used</th>
                 <!--     <th scope="col">Slug</th> -->
                     <th scope="col">Image</th>
 <!--                     <th scope="col">Description</th> -->

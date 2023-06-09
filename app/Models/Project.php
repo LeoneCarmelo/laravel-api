@@ -9,11 +9,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use App\Models\Type;
 use App\Models\Technology;
+use App\Models\User;
 
 class Project extends Model
 {
     use HasFactory;
-    protected $fillable = ['title', 'slug', 'image', 'description', 'link_project', 'link_website', 'type_id', 'technology_id'];
+    protected $fillable = ['title', 'slug', 'image', 'description', 'link_project', 'link_website', 'type_id', 'technology_id', 'user_id'];
 
     public static function generateSlug($title) 
     {
@@ -28,5 +29,10 @@ class Project extends Model
     public function technologies(): BelongsToMany
     {
         return $this->belongsToMany(Technology::class);
+    }
+
+    public function user(): BelongsTo 
+    {
+        return $this->belongsTo(User::class);
     }
 }
