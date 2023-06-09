@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Project;
 use App\Models\Type;
 use App\Models\Technology;
@@ -18,7 +19,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::orderByDesc('id')->paginate(5);
+        $projects = Auth::user()->projects()->orderByDesc('id')->paginate(5);
         //dd($projects);
         return view('admin.projects.index', compact('projects'));
     }
@@ -52,6 +53,7 @@ class ProjectController extends Controller
         $slug = Project::generateSlug($val_data['title']);
         //dd($slug);
         $val_data['slug'] = $slug;
+        $val_data['user_id'] = Auth::id();
         //create new project
         $new_project = Project::create($val_data);
         //redirect to index
