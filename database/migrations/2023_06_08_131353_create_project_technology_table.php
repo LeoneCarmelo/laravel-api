@@ -13,16 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('project_technology', function (Blueprint $table) {  
+        Schema::create('project_technology', function (Blueprint $table) {
             //Add projects_id column
             $table->unsignedBigInteger('project_id');
-            
+
             //Add foreign key 
             $table->foreign('project_id')->references('id')->on('projects')->cascadeOnDelete();
-            
+
             //Add technology_id column
             $table->unsignedBigInteger('technology_id');
-            
+
             //Add foreign key
             $table->foreign('technology_id')->references('id')->on('technologies')->cascadeOnDelete();
             //Add primary key
@@ -38,5 +38,6 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('project_technology');
+
     }
 };
