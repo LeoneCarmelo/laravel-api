@@ -15,9 +15,10 @@
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Title</th>
-                    <th scope="col">Slug</th>
+                    <th scope="col">Total technologies</th>
+                <!--     <th scope="col">Slug</th> -->
                     <th scope="col">Image</th>
-                    <th scope="col">Description</th>
+<!--                     <th scope="col">Description</th> -->
                     <th scope="col">Link Project</th>
                     <th scope="col">Link Website</th>
                     <th scope="col">Type</th>
@@ -29,15 +30,16 @@
                 <tr class="">
                     <td scope="row">{{$project->id}}</td>
                     <td scope="row">{{$project->title}}</td>
-                    <td scope="row">{{$project->slug}}</td>
+                    <td scope="row">{{$project->technologies->count()}}</td>
+                    <!-- <td scope="row">{{$project->slug}}</td> -->
                     <td scope="row">
                         <img src="{{$project->image}}" width="120" alt="{{$project->title}}">
                     </td>
-                    <td scope="row">
+<!--                     <td scope="row">
                         <div id="desc">
                             {{$project->description}}
                         </div>
-                    </td>
+                    </td> -->
                     <td scope="row"><a href="{{$project->link_project}}">{{$project->link_project}}</a></td>
                     <td scope="row"><a href="{{$project->link_website}}">{{$project->link_website}}</a></td>
                     <td scope="row">{{$project->type?->name}}</td>
