@@ -79,14 +79,14 @@
                     </li>
                     <li class="nav-item d-flex align-items-center gap-2">
                         <i class="fa-solid fa-circle-dot" style="color: #000000;"></i>
-                        <a class="nav-link {{Route::currentRouteName() === 'admin.types.index' ? 'bg-dark text-white' : 'text-dark'}}" href="{{route('admin.types.index')}}" href="#">
+                        <a class="nav-link {{Route::currentRouteName() === 'admin.types.index' ? 'bg-dark text-white' : 'text-dark'}}" href="{{route('admin.types.index')}}">
                             <span data-feather="shopping-cart"></span>
                             Types
                         </a>
                     </li>
                     <li class="nav-item d-flex align-items-center gap-2">
                         <i class="fa-solid fa-circle-dot" style="color: #000000;"></i>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link {{Route::currentRouteName() === 'admin.technologies.index' ? 'bg-dark text-white' : 'text-dark'}}" href="{{route('admin.technologies.index')}}">
                             <span data-feather="shopping-cart"></span>
                             Technologies
                         </a>
