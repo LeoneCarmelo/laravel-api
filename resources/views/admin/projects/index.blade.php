@@ -10,7 +10,7 @@
     @endif
     <a class="btn btn-primary my-2 " href="{{route('admin.projects.create')}}" role="button">Add Project</a>
     <div class="table-responsive">
-        <table class="table table-primary">
+        <table class="table table-striped table-hover">
             <thead>
                 <tr>
                     <th scope="col">Id</th>
@@ -89,6 +89,8 @@
             </tbody>
         </table>
     </div>
+    <div class="pagination_tabs d-flex justify-content-center">{!! $projects->links() !!}</div>
+    
 
 </div>
 

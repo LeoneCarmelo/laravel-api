@@ -60,28 +60,32 @@
 
 <div class="container-fluid">
     <div class="row">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
             <div class="position-sticky pt-3">
                 <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link active {{Route::currentRouteName() === 'admin.dashboard' ? 'bg-dark text-white' : ''}}" aria-current="page" href="{{route('admin.dashboard')}}">
+                    <li class="nav-item d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-circle-dot" style="color: #000000;"></i>
+                        <a class="nav-link active {{Route::currentRouteName() === 'admin.dashboard' ? 'bg-dark text-white' : 'text-dark'}}" aria-current="page" href="{{route('admin.dashboard')}}">
                             <span data-feather="home"></span>
                             Dashboard
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{Route::currentRouteName() === 'admin.projects.index' ? 'bg-dark text-white' : ''}}" href="{{route('admin.projects.index')}}">
+                    <li class="nav-item d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-circle-dot" style="color: #000000;"></i>
+                        <a class="nav-link {{Route::currentRouteName() === 'admin.projects.index' ? 'bg-dark text-white' : 'text-dark'}}" href="{{route('admin.projects.index')}}">
                             <span data-feather="file"></span>
                             Projects
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-circle-dot" style="color: #000000;"></i>
                         <a class="nav-link" href="#">
                             <span data-feather="shopping-cart"></span>
                             Types
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-circle-dot" style="color: #000000;"></i>
                         <a class="nav-link" href="#">
                             <span data-feather="shopping-cart"></span>
                             Technologies
