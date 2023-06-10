@@ -1,16 +1,7 @@
 @extends('admin.dashboard')
 
 @section('mainDash')
-@if ($errors->any())
-<div class="alert alert-danger" role="alert">
-
-  <ul>
-    @foreach ($errors->all() as $error)
-    <li>{{$error}}</li>
-    @endforeach
-  </ul>
-</div>
-@endif
+@include('admin.partials.validation_errors')
 
 <form action="{{route('admin.projects.update', $project->slug)}}" method="post" class="my-4">
   @csrf

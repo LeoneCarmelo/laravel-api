@@ -16,9 +16,9 @@
             <div>
                 <div class="description h-50 my-2">
                     @if ($project->technologies->count() > 0)
-                    <strong>Technologies: </strong>
-                    <span>Total: {{$project->technologies->count()}}</span>
-                    <ul>
+                    <strong>Technologies used: </strong>
+                    <span>{{$project->technologies->count()}}</span>
+                    <ul class="list-unstyled d-flex gap-2">
                         @foreach ($project->technologies as $technology)
                         <li><span class="badge bg-danger">{{ $technology->name }}</span></li>
                         @endforeach
@@ -29,6 +29,7 @@
                 </div>
             </div>
             <div class="meta">
+                <strong>Type: </strong>
                 <span class="badge bg-primary">{{$project->type?->name}}</span>
             </div>
         </div>
