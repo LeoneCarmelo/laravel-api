@@ -4,7 +4,7 @@
 @include('admin.partials.validation_errors')
 <div class="container px-0">
     <h1 class="text-center py-3">Projects</h1>
-@include('admin.partials.session_message')
+    @include('admin.partials.session_message')
     <a class="btn btn-primary my-2 " href="{{route('admin.projects.create')}}" role="button">Add Project</a>
     <div class="table-responsive">
         <table class="table table-striped table-hover">
@@ -38,7 +38,7 @@
                                 <i class="fa fa-eye" aria-hidden="true" style="color: #000000;"></i>
                             </a>
                             <a href="{{route('admin.projects.edit', $project->slug)}}">
-                            <i class="fa-solid fa-pencil" style="color: #000000;"></i>
+                                <i class="fa-solid fa-pencil" style="color: #000000;"></i>
                             </a>
                             <!-- Modal trigger button -->
                             <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-{{$project->slug}}">
@@ -79,7 +79,7 @@
         </table>
     </div>
     <div class="pagination_tabs d-flex justify-content-center">{!! $projects->links() !!}</div>
-    
+
 
 </div>
 
