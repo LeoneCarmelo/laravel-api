@@ -27,6 +27,6 @@ return [
     ],
     [
         "name" => "Bootstrap",
-        "link_img" => "images/bootstrap.png",
+        "link_img" => "images/bootstrap.svg.png",
     ],
 ];

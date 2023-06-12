@@ -47,7 +47,7 @@ class TechnologyController extends Controller
         $val_data['slug'] = $slug;
 
         if ($request->hasFile('link_img')) {
-            $img_path = Storage::put('uploads/images', $request->link_img);
+            $img_path = Storage::put('images', $request->link_img);
             $val_data['link_img'] = $img_path;
         }
         $newTechnology = Technology::create($val_data);

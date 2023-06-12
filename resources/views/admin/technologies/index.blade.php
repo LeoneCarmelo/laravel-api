@@ -20,7 +20,7 @@
     <div class="row row-cols-1 row-col-sm-2 row-cols-md-4">
         @foreach ($technologies as $technology)
         <div class="col d-flex justify-content-center pb-4">
-            <img width="180px" src="{{asset('storage/uploads/' . $technology->link_img)}}" alt="{{$technology->name}}" class="img-fluid" />
+            <img width="180px" src="{{asset('storage/' . $technology->link_img)}}" alt="{{$technology->name}}" class="img-fluid" />
         </div>
         @endforeach
     </div>
