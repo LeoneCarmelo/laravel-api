@@ -2,7 +2,7 @@
 
 @section('content')
 
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-expand-md navbar-dark bg-black shadow-sm">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
             {{-- config('app.name', 'Laravel') --}}
@@ -16,7 +16,7 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('/') }}">{{ __('Home') }}</a>
+                    <a class="nav-link text-white" href="{{url('/') }}">{{ __('Home') }}</a>
                 </li>
             </ul>
 
@@ -64,37 +64,36 @@
             <div class="position-sticky pt-3">
                 <ul class="nav flex-column">
                     <li class="nav-item d-flex align-items-center gap-2">
-                        <i class="fa-solid fa-circle-dot" style="color: #000000;"></i>
-                        <a class="nav-link active {{Route::currentRouteName() === 'admin.dashboard' ? 'bg-dark text-white' : 'text-dark'}}" aria-current="page" href="{{route('admin.dashboard')}}">
+                        <a class="nav-link active {{Route::currentRouteName() === 'admin.dashboard' ? 'text-white' : 'text-dark'}}" aria-current="page" href="{{route('admin.dashboard')}}">
                             <span data-feather="home"></span>
+                            <i class="fa-solid fa-circle-dot me-3 {{Route::currentRouteName() === 'admin.dashboard' ? 'text-white' : 'text-dark'}}"></i>
                             Dashboard
                         </a>
                     </li>
                     <li class="nav-item d-flex align-items-center gap-2">
-                        <i class="fa-solid fa-circle-dot" style="color: #000000;"></i>
-                        <a class="nav-link {{Route::currentRouteName() === 'admin.projects.index' ? 'bg-dark text-white' : 'text-dark'}}" href="{{route('admin.projects.index')}}">
+                        <a class="nav-link {{Route::currentRouteName() === 'admin.projects.index' ? 'text-white' : 'text-dark'}}" href="{{route('admin.projects.index')}}">
                             <span data-feather="file"></span>
+                            <i class="fa-solid fa-circle-dot me-3 {{Route::currentRouteName() === 'admin.projects.index' ? 'text-white' : 'text-dark'}}" ></i>
                             Projects
                         </a>
                     </li>
                     <li class="nav-item d-flex align-items-center gap-2">
-                        <i class="fa-solid fa-circle-dot" style="color: #000000;"></i>
-                        <a class="nav-link {{Route::currentRouteName() === 'admin.types.index' ? 'bg-dark text-white' : 'text-dark'}}" href="{{route('admin.types.index')}}">
+                        <a class="nav-link {{Route::currentRouteName() === 'admin.types.index' ? 'text-white' : 'text-dark'}}" href="{{route('admin.types.index')}}">
                             <span data-feather="shopping-cart"></span>
+                            <i class="fa-solid fa-circle-dot me-3 {{Route::currentRouteName() === 'admin.types.index' ? 'text-white' : 'text-dark'}}"></i>
                             Types
                         </a>
                     </li>
                     <li class="nav-item d-flex align-items-center gap-2">
-                        <i class="fa-solid fa-circle-dot" style="color: #000000;"></i>
-                        <a class="nav-link {{Route::currentRouteName() === 'admin.technologies.index' ? 'bg-dark text-white' : 'text-dark'}}" href="{{route('admin.technologies.index')}}">
+                        <a class="nav-link {{Route::currentRouteName() === 'admin.technologies.index' ? 'text-white' : 'text-dark'}}" href="{{route('admin.technologies.index')}}">
                             <span data-feather="shopping-cart"></span>
+                            <i class="fa-solid fa-circle-dot me-3 {{Route::currentRouteName() === 'admin.technologies.index' ? 'text-white' : 'text-dark'}}"></i>
                             Technologies
                         </a>
                     </li>
                 </ul>
             </div>
         </nav>
-
         <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
             @yield('mainDash')
         </main>

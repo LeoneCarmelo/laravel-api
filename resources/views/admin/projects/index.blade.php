@@ -2,18 +2,18 @@
 
 @section('mainDash')
 @include('admin.partials.validation_errors')
-<div class="container px-0">
+<div class="container projects">
     <h1 class="text-center py-3">Projects</h1>
     @include('admin.partials.session_message')
-    <a class="btn btn-primary my-2 " href="{{route('admin.projects.create')}}" role="button">Add Project</a>
+    <a class="btn btn-dark my-2 " href="{{route('admin.projects.create')}}" role="button">Add Project</a>
     <div class="table-responsive">
-        <table class="table table-striped table-hover">
+        <table class="table table-striped table-dark table-hover">
             <thead>
-                <tr>
+                <tr class="projects">
+                    <th scope="col">Image</th>
                     <th scope="col">Id</th>
                     <th scope="col">Title</th>
-                    <th scope="col">Technologies used</th>
-                    <th scope="col">Image</th>
+                    <th scope="col">Technologies</th>
                     <th scope="col">Link Project</th>
                     <th scope="col">Link Website</th>
                     <th scope="col">Type</th>
@@ -22,27 +22,27 @@
             </thead>
             <tbody>
                 @forelse ($projects as $project)
-                <tr class="">
-                    <td scope="row">{{$project->id}}</td>
-                    <td scope="row">{{$project->title}}</td>
-                    <td scope="row">{{$project->technologies->count()}}</td>
-                    <td scope="row">
-                        <img src="{{$project->image}}" width="120" alt="{{$project->title}}">
+                <tr class="projects">
+                    <td scope="row" class="img">
+                        <img src="{{$project->image}}" width="120" alt="{{$project->title}}" class="img-fluid me-3">
                     </td>
-                    <td scope="row"><a href="{{$project->link_project}}">{{$project->link_project}}</a></td>
-                    <td scope="row"><a href="{{$project->link_website}}">{{$project->link_website}}</a></td>
-                    <td scope="row">{{$project->type?->name}}</td>
-                    <td scope="row">
-                        <div class="d-flex flex-column align-items-center gap-2">
+                    <td scope="row" data-cell="Id:">{{$project->id}}</td>
+                    <td scope="row" data-cell="Title:">{{$project->title}}</td>
+                    <td scope="row" data-cell="Technologies:">{{$project->technologies->count()}}</td>
+                    <td scope="row" data-cell="Link project:"><a class="text-white" href="{{$project->link_project}}">{{$project->link_project}}</a></td>
+                    <td scope="row" data-cell="Link website:"><a class="text-white" href="{{$project->link_website}}">{{$project->link_website}}</a></td>
+                    <td scope="row" data-cell="Type:">{{$project->type?->name}}</td>
+                    <td scope="row" data-cell="Actions:">
+                        <div class="actions d-flex align-items-center gap-2">
                             <a href="{{route('admin.projects.show', $project->slug)}}">
-                                <i class="fa fa-eye" aria-hidden="true" style="color: #000000;"></i>
+                                <i class="fa-regular fa-eye" aria-hidden="true" style="color: #ffffff;"></i>
                             </a>
                             <a href="{{route('admin.projects.edit', $project->slug)}}">
-                                <i class="fa-solid fa-pencil" style="color: #000000;"></i>
+                                <i class="fa-solid fa-pencil" style="color: #ffffff;"></i>
                             </a>
                             <!-- Modal trigger button -->
                             <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-{{$project->slug}}">
-                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            <i class="fa-solid fa-trash-can" style="color: #ffffff;"></i>
                             </button>
                             <!-- Modal Body -->
                             <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->

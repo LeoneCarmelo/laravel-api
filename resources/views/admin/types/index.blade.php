@@ -1,7 +1,7 @@
 @extends('admin.dashboard')
 
 @section('mainDash')
-<div class="container py-5">
+<div class="container types py-5">
     @include('admin.partials.validation_errors')
     @include('admin.partials.session_message')
     <div class="row row-cols-1 row-cols-md-2 flex-column align-items-center">

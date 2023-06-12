@@ -1,5 +1,17 @@
 @import '~bootstrap/scss/bootstrap';
+#sidebarMenu {
+    height: calc(100vh - 56px);
+    background-color: #000;
+}
 
+li > i.fa-circle-dot {
+    cursor: pointer;
+}
+
+main.col-md-9 {
+    height: calc(100vh - 56px);
+    overflow-y: scroll;
+}
 #desc {
     height: 100px;
     overflow-y: auto;
@@ -14,10 +26,31 @@ i.fa-trash {
 
 
 .overlay:hover {
-    background-color: rgba(0, 0, 0, 0.73);
+    background-color: rgba(0, 0, 0, 0.904);
     display: block;
 }
 
 .overlay:hover .fa-trash {
     display: block;
+}
+
+@media screen and (max-width: 992px) {
+    tr.projects th {
+        display: none;
+    }
+    tr.projects td {
+        display: flex;
+        align-items: center;
+    }
+    tr.projects td::before {
+        content:attr(data-cell);
+        padding: 10px;
+    }
+    td.img {
+        justify-content: center;
+    }
+    td > img {
+        width:100%;
+    }
+
 }
