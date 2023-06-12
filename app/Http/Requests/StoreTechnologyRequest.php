@@ -25,7 +25,7 @@ class StoreTechnologyRequest extends FormRequest
     {
         return [
             "name" => 'required|unique:technologies|max:50',
-            "link_img" => 'required'
+            "link_img" => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:999|',
         ];
     }
 }

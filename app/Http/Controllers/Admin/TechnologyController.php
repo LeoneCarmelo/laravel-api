@@ -6,7 +6,7 @@ use App\Models\Technology;
 use App\Http\Requests\StoreTechnologyRequest;
 use App\Http\Requests\UpdateTechnologyRequest;
 use App\Http\Controllers\Controller;
-
+use Illuminate\Support\Facades\Storage;
 class TechnologyController extends Controller
 {
     /**
@@ -39,8 +39,20 @@ class TechnologyController extends Controller
      */
     public function store(StoreTechnologyRequest $request)
     {
-        dd($request);
-        return to_route('admin.technologies.index');
+        //dd($request);
+        $val_data = $request->validated();
+
+        $slug = Technology::generateSlug($val_data['name']);
+        //dd($slug);
+        $val_data['slug'] = $slug;
+
+        if ($request->hasFile('link_img')) {
+            $img_path = Storage::put('uploads/images', $request->link_img);
+            $val_data['link_img'] = $img_path;
+        }
+        $newTechnology = Technology::create($val_data);
+
+        return to_route('admin.technologies.index')->with('message', 'Technology added.');
     }
 
     /**
