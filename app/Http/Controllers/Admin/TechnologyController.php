@@ -39,7 +39,8 @@ class TechnologyController extends Controller
      */
     public function store(StoreTechnologyRequest $request)
     {
-        //
+        dd($request);
+        return to_route('index.technologies.index');
     }
 
     /**

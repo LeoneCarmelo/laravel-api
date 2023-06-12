@@ -10,7 +10,7 @@ use App\Models\Project;
 class Technology extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'slug', 'project_id'];
+    protected $fillable = ['name', 'link_img', 'slug', 'project_id'];
     
     public function project(): BelongsToMany
     {

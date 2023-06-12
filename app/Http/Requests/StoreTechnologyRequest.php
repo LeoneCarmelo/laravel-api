@@ -24,7 +24,8 @@ class StoreTechnologyRequest extends FormRequest
     public function rules()
     {
         return [
-            "name" => 'required|unique:tecnologies|max:50'
+            "name" => 'required|unique:tecnologies|max:50',
+            "link_img" => 'required'
         ];
     }
 }
