@@ -31,7 +31,7 @@ return new class extends Migration
     {
         Schema::table('projects', function (Blueprint $table) {
             #remove foreign key
-            $table->dropForeign('projects_users_id_foreign');
+            $table->dropForeign('projects_user_id_foreign');
             #drop column
             $table->dropColumn('user_id');
         });
