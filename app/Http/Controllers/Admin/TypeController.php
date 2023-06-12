@@ -6,6 +6,7 @@ use App\Models\Type;
 use App\Http\Requests\StoreTypeRequest;
 use App\Http\Requests\UpdateTypeRequest;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 
 class TypeController extends Controller
 {
@@ -38,7 +39,16 @@ class TypeController extends Controller
      */
     public function store(StoreTypeRequest $request)
     {
-        //
+        //Validation
+        $val_data = $request->validated();
+        //Add slug
+        $slug = Str::slug($request->name);
+        //Push slug on val_data
+        $val_data['slug'] = $slug;
+        //Creat new type
+        Type::create($val_data);
+        //return to index
+        return to_route('admin.types.index')->with('message', 'Type added.');
     }
 
     /**
@@ -83,6 +93,7 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        //
+        $type->delete();
+        return to_route('admin.types.index')->with('message', 'Type ' . $type->name . ' deleted.');
     }
 }
