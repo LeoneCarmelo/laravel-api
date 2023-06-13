@@ -9,7 +9,7 @@
             <form action="{{route('admin.types.store')}}" method="post">
                 @csrf
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Full Stack" aria-label="Button" name="name" id="name">
+                    <input type="text" class="form-control" placeholder="Insert new type" aria-label="Button" name="name" id="name">
                     <button class="btn btn-outline-secondary" type="submit">Add</button>
                 </div>
             </form>
@@ -30,7 +30,21 @@
                         @forelse ($types as $type)
                         <tr class="">
                             <td scope="row">{{$type->id}}</td>
-                            <td>{{$type->name}}</td>
+                            <td>
+                            <form action="{{route('admin.types.update', $type)}}" method="post">
+                                @csrf
+                                @method('PATCH')
+                                <div class="input-group">
+                                    <input class="form-control border-0 bg-transparent" type="text" name="name" id="name" value="{{$type->name}}" aria-describedby="editInput-{{$type->id}}">
+
+                                    <span class="input-group-text border-0">
+                                        <i class="fa-solid fa-pencil" id="editInput-{{$type->id}}"></i>
+                                    </span>
+                                </div>
+                                <small>Press enter to update the type name</small>
+                            </form>
+                                
+                            </td>
                             <td>{{$type->slug}}</td>
                             <td>
                                 <span class="badge bg-dark">{{ $type->projects->count()}}</span>
