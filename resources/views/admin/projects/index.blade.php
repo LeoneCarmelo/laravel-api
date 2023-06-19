@@ -24,7 +24,7 @@
                 @forelse ($projects as $project)
                 <tr class="projects">
                     <td scope="row" class="img">
-                        <img src="{{$project->image}}" width="120" alt="{{$project->title}}" class="img-fluid me-3">
+                        <img src="{{ asset('storage/' . $project->image)}}" width="120" alt="{{$project->title}}" class="img-fluid me-3">
                     </td>
                     <td scope="row" data-cell="Id:">{{$project->id}}</td>
                     <td scope="row" data-cell="Title:">{{$project->title}}</td>

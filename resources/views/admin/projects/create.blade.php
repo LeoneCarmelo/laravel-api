@@ -1,7 +1,7 @@
 @extends('admin.dashboard')
 
 @section('mainDash')
-<form action="{{route('admin.projects.store')}}" method="post" class="my-4">
+<form action="{{route('admin.projects.store')}}" method="post" class="my-4" enctype="multipart/form-data">
   @csrf
   <div class="mb-3">
     <label for="title" class="form-label">Title</label>
@@ -15,7 +15,7 @@
   </div>
   <div class="mb-3">
     <label for="image" class="form-label">Image</label>
-    <input type="text" name="image" id="image" class="form-control @error('image') is-invalid @enderror" placeholder="Image" aria-describedby="helpIdimage">
+    <input type="file" name="image" id="image" class="form-control @error('image') is-invalid @enderror" placeholder="Image" aria-describedby="helpIdimage">
     <small id="helpIdimage" class="text-muted">Insert a Image's link.</small>
     @error('image')
     <div class="alert alert-danger" role="alert">

@@ -6,6 +6,7 @@ use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Project;
 use App\Models\Type;
 use App\Models\Technology;
@@ -55,6 +56,10 @@ class ProjectController extends Controller
         //dd($slug);
         $val_data['slug'] = $slug;
         $val_data['user_id'] = Auth::id();
+        if ($request->hasFile('image')) {
+            $img_path = Storage::put('images', $request->image);
+            $val_data['image'] = $img_path;
+        }
         //create new project
         $new_project = Project::create($val_data);
         //redirect to index
@@ -99,12 +104,28 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-  
+        
         $val_data = $request->validated();
 
         $slug = Project::generateSlug($val_data['title']);
         
         $val_data['slug'] = $slug;
+        
+        if ($request->hasFile('image')) {
+            //dd('here');
+
+            //if project->image
+            // delete the previous image
+
+            if ($project->image) {
+                Storage::delete($project->image);
+            }
+
+            // Save the file in the storage and get its path
+            $image_path = Storage::put('uploads', $request->image);
+            //dd($image_path);
+            $val_data['image'] = $image_path;
+        }
 
         if ($request->has('technologies')) {
             $project->technologies()->sync($request->technologies);
@@ -125,7 +146,10 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         //$project->technologies()->sync([]);
+        if($project->image){
+            Storage::delete($project->image);
+        }
         $project->delete();
-        return to_route('admin.projects.index')->with('message', 'Project: ' . $project->title . 'deleted.');
+        return to_route('admin.projects.index')->with('message', 'Project: ' . $project->title . ' deleted.');
     }
 }
