@@ -3,7 +3,7 @@
 @section('mainDash')
 @include('admin.partials.validation_errors')
 
-<form action="{{route('admin.projects.update', $project->slug)}}" method="post" class="my-4">
+<form action="{{route('admin.projects.update', $project->slug)}}" method="post" class="my-4" enctype="multipart/form-data">
   @csrf
   @method('PUT')
   <div class="mb-3">
@@ -18,7 +18,7 @@
   </div>
   <div class="mb-3">
     <label for="image" class="form-label">Image</label>
-    <input type="text" name="image" id="image" class="form-control @error('image') is-invalid @enderror" placeholder="Image" aria-describedby="helpIdimage" value="{{old('image', $project->image)}}">
+    <input type="file" name="image" id="image" class="form-control @error('image') is-invalid @enderror" placeholder="Image" aria-describedby="helpIdimage" value="{{old('image', $project->image)}}">
     <small id="helpIdimage" class="text-muted">Edit a Image's link.</small>
     @error('image')
     <div class="alert alert-danger" role="alert">

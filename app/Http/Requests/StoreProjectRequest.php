@@ -25,7 +25,7 @@ class StoreProjectRequest extends FormRequest
     {
         return [
             'title' => 'required|unique:projects|max:100',
-            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:999|',
+            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:9999|',
             'description' => 'required|max:65535',
             'link_project' => 'required|max:255',
             'link_website' => 'required|max:255',
