@@ -4,19 +4,20 @@
 <div class="container types py-5">
     @include('admin.partials.validation_errors')
     @include('admin.partials.session_message')
+    <h1 class="text-center fw-bold">TYPES</h1>
     <div class="row row-cols-1 row-cols-md-2 flex-column align-items-center">
         <div class="col p-2">
-            <form action="{{route('admin.types.store')}}" method="post">
+            <form action="{{route('admin.types.store')}}" method="post" class="mb-5 mt-4">
                 @csrf
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Insert new type" aria-label="Button" name="name" id="name">
-                    <button class="btn btn-outline-secondary" type="submit">Add</button>
+                    <button class="btn btn-outline-dark fw-bold" type="submit">Add</button>
                 </div>
             </form>
         </div>
         <div class="col">
             <div class="table-responsive-md">
-                <table class="table table-light">
+                <table class="table table-striped table-dark table-hover">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
@@ -35,9 +36,9 @@
                                 @csrf
                                 @method('PATCH')
                                 <div class="input-group">
-                                    <input class="form-control border-0 bg-transparent" type="text" name="name" id="name" value="{{$type->name}}" aria-describedby="editInput-{{$type->id}}">
+                                    <input class="form-control border-0 bg-transparent text-white" type="text" name="name" id="name" value="{{$type->name}}" aria-describedby="editInput-{{$type->id}}">
 
-                                    <span class="input-group-text border-0">
+                                    <span class="input-group-text border-0 ">
                                         <i class="fa-solid fa-pencil" id="editInput-{{$type->id}}"></i>
                                     </span>
                                 </div>

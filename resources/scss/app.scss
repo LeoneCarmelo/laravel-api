@@ -1,17 +1,69 @@
 @import '~bootstrap/scss/bootstrap';
+
 #sidebarMenu {
     height: calc(100vh - 56px);
     background-color: #000;
+
 }
 
-li > i.fa-circle-dot {
+#sidebarMenu ul li a:hover {
+    color: white !important;
+}
+
+li>i.fa-circle-dot {
     cursor: pointer;
 }
 
 main.col-md-9 {
     height: calc(100vh - 56px);
     overflow-y: scroll;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    animation: gradient 10s ease infinite;
 }
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.dash_card {
+    border: 2px solid black;
+    padding:3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 24px  black;
+    animation-play-state: running;
+    transition:animation-play-state 0.3s ease;
+    animation-name:shade;
+    animation-duration: 0.8s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.dash_card:hover {
+    animation-play-state: paused;
+}
+
+@keyframes shade {
+    from {
+        box-shadow:0 16px 48px black;
+    }
+
+    to {
+        box-shadow: 0 4px 16px black;
+    }
+}
+
 #desc {
     height: 100px;
     overflow-y: auto;
@@ -20,6 +72,7 @@ main.col-md-9 {
 .overlay {
     display: none;
 }
+
 i.fa-trash {
     display: none;
 }
@@ -38,19 +91,23 @@ i.fa-trash {
     tr.projects th {
         display: none;
     }
+
     tr.projects td {
         display: flex;
         align-items: center;
     }
+
     tr.projects td::before {
-        content:attr(data-cell);
+        content: attr(data-cell);
         padding: 10px;
     }
+
     td.img {
         justify-content: center;
     }
-    td > img {
-        width:100%;
+
+    td>img {
+        width: 100%;
     }
 
 }

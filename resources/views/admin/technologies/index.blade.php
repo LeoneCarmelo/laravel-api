@@ -4,8 +4,8 @@
 <div class="container pt-3">
     @include('admin.partials.validation_errors')
     @include('admin.partials.session_message')
-    <h1 class="text-center fw-wold text-uppercase fw-semibold py-4">Technologies</h1>
-    <form action="{{route('admin.technologies.store')}}" method="post" enctype="multipart/form-data" class="d-flex">
+    <h1 class="text-center fw-wold text-uppercase fw-bold py-4">Technologies</h1>
+    <form action="{{route('admin.technologies.store')}}" method="post" enctype="multipart/form-data" class="d-flex  mt-2 mb-5">
         @csrf
         <div class="input-group mb-3 w-25 mx-auto py-3">
             <input type="text" class="form-control" placeholder="Type name of technology" aria-label="Button" name="name" id="name">

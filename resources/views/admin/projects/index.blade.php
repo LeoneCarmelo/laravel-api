@@ -3,7 +3,7 @@
 @section('mainDash')
 @include('admin.partials.validation_errors')
 <div class="container projects">
-    <h1 class="text-center py-3">Projects</h1>
+    <h1 class="text-center py-3 text-uppercase fw-bold mt-3">Projects</h1>
     @include('admin.partials.session_message')
     <a class="btn btn-dark my-2 " href="{{route('admin.projects.create')}}" role="button">Add Project</a>
     <div class="table-responsive">
@@ -11,7 +11,6 @@
             <thead>
                 <tr class="projects">
                     <th scope="col">Image</th>
-                    <th scope="col">Id</th>
                     <th scope="col">Title</th>
                     <th scope="col">Technologies</th>
                     <th scope="col">Link Project</th>
@@ -26,7 +25,6 @@
                     <td scope="row" class="img">
                         <img src="{{ asset('storage/' . $project->image)}}" width="120" alt="{{$project->title}}" class="img-fluid me-3">
                     </td>
-                    <td scope="row" data-cell="Id:">{{$project->id}}</td>
                     <td scope="row" data-cell="Title:">{{$project->title}}</td>
                     <td scope="row" data-cell="Technologies:">{{$project->technologies->count()}}</td>
                     <td scope="row" data-cell="Link project:"><a class="text-white" href="{{$project->link_project}}">{{$project->link_project}}</a></td>
@@ -37,7 +35,7 @@
                             <a href="{{route('admin.projects.show', $project->slug)}}">
                                 <i class="fa-regular fa-eye" aria-hidden="true" style="color: #ffffff;"></i>
                             </a>
-                            <a href="{{route('admin.projects.edit', $project->slug)}}">
+                            <a href="{{route('admin.projects.edit', $project->slug)}}" class="ms-2">
                                 <i class="fa-solid fa-pencil" style="color: #ffffff;"></i>
                             </a>
                             <!-- Modal trigger button -->
