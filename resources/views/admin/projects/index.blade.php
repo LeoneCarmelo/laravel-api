@@ -3,10 +3,12 @@
 @section('mainDash')
 @include('admin.partials.validation_errors')
 <div class="container projects">
-    <h1 class="text-center py-3 text-uppercase fw-bold mt-3">Projects</h1>
+    <h1 class="py-3 text-uppercase fw-bold mt-3">Projects</h1>
     @include('admin.partials.session_message')
-    <a class="btn btn-dark my-2 " href="{{route('admin.projects.create')}}" role="button">Add Project</a>
-    <div class="table-responsive">
+        <a class="text-decoration-none text-dark" href="{{route('admin.projects.create')}}" role="button">
+            <i class="fa-solid fa-plus fa-2x"></i>
+        </a>
+    <div class="table-responsive my-4">
         <table class="table table-striped table-dark table-hover">
             <thead>
                 <tr class="projects">
@@ -40,7 +42,7 @@
                             </a>
                             <!-- Modal trigger button -->
                             <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-{{$project->slug}}">
-                            <i class="fa-solid fa-trash-can" style="color: #ffffff;"></i>
+                                <i class="fa-solid fa-trash-can" style="color: #ffffff;"></i>
                             </button>
                             <!-- Modal Body -->
                             <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
@@ -52,7 +54,8 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body text-black">
-                                            Are you sure?
+                                            <img src="{{ asset('storage/' . $project->image)}}" class="img-fluid" alt="">
+                                            <h6 class="fw-bold">Are you sure?</h6>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

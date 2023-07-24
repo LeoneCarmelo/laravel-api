@@ -1,3 +1,6 @@
+@use './partials/indexProjects.scss';
+@use './partials/dashboard.scss';
+@use './partials/indexTypes.scss';
 @import '~bootstrap/scss/bootstrap';
 
 #sidebarMenu {
@@ -35,34 +38,7 @@ main.col-md-9 {
     }
 }
 
-.dash_card {
-    border: 2px solid black;
-    padding:3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 8px 24px  black;
-    animation-play-state: running;
-    transition:animation-play-state 0.3s ease;
-    animation-name:shade;
-    animation-duration: 0.8s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
 
-.dash_card:hover {
-    animation-play-state: paused;
-}
-
-@keyframes shade {
-    from {
-        box-shadow:0 16px 48px black;
-    }
-
-    to {
-        box-shadow: 0 4px 16px black;
-    }
-}
 
 #desc {
     height: 100px;
@@ -87,27 +63,3 @@ i.fa-trash {
     display: block;
 }
 
-@media screen and (max-width: 992px) {
-    tr.projects th {
-        display: none;
-    }
-
-    tr.projects td {
-        display: flex;
-        align-items: center;
-    }
-
-    tr.projects td::before {
-        content: attr(data-cell);
-        padding: 10px;
-    }
-
-    td.img {
-        justify-content: center;
-    }
-
-    td>img {
-        width: 100%;
-    }
-
-}

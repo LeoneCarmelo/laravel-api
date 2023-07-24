@@ -1,0 +1,28 @@
+.dash_card {
+    border: 2px solid black;
+    padding:3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 24px  black;
+    animation-play-state: running;
+    transition:animation-play-state 0.3s ease;
+    animation-name:shade;
+    animation-duration: 0.8s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.dash_card:hover {
+    animation-play-state: paused;
+}
+
+@keyframes shade {
+    from {
+        box-shadow:0 16px 48px black;
+    }
+
+    to {
+        box-shadow: 0 4px 16px black;
+    }
+}

@@ -10,7 +10,7 @@
             <form action="{{route('admin.types.store')}}" method="post" class="mb-5 mt-4">
                 @csrf
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Insert new type" aria-label="Button" name="name" id="name">
+                    <input type="text" class="form-control bg-transparent border-black" placeholder="Insert new type" aria-label="Button" name="name" id="name">
                     <button class="btn btn-outline-dark fw-bold" type="submit">Add</button>
                 </div>
             </form>
@@ -19,38 +19,33 @@
             <div class="table-responsive-md">
                 <table class="table table-striped table-dark table-hover">
                     <thead>
-                        <tr>
-                            <th scope="col">ID</th>
+                        <tr class="types">
                             <th scope="col">Name</th>
-                            <th scope="col">Slug</th>
                             <th scope="col">Projects</th>
                             <th scope="col">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         @forelse ($types as $type)
-                        <tr class="">
-                            <td scope="row">{{$type->id}}</td>
-                            <td>
+                        <tr class="types">
+                            <td scope="row" data-cell="Name: ">
                             <form action="{{route('admin.types.update', $type)}}" method="post">
                                 @csrf
                                 @method('PATCH')
                                 <div class="input-group">
-                                    <input class="form-control border-0 bg-transparent text-white" type="text" name="name" id="name" value="{{$type->name}}" aria-describedby="editInput-{{$type->id}}">
+                                    <input class="form-control border-0 bg-transparent text-white type" type="text" name="name" id="name" value="{{$type->name}}" aria-describedby="editInput-{{$type->id}}">
 
                                     <span class="input-group-text border-0 ">
                                         <i class="fa-solid fa-pencil" id="editInput-{{$type->id}}"></i>
                                     </span>
                                 </div>
-                                <small>Press enter to update the type name</small>
                             </form>
                                 
                             </td>
-                            <td>{{$type->slug}}</td>
-                            <td>
+                            <td scope="row" data-cell="Projects: ">
                                 <span class="badge bg-dark">{{ $type->projects->count()}}</span>
                             </td>
-                            <td>
+                            <td scope="row" data-cell="Actions: ">
                                 <!-- Modal trigger button -->
                                 <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-{{$type->slug}}">
                                 <i class="fa-solid fa-trash-can" style="color: #ff0000;"></i>

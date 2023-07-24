@@ -1,0 +1,22 @@
+input.type:hover {
+    background-color: white !important;
+    color:black !important;
+    transition:all 0.5s ease-in-out;
+}
+
+@media screen and (max-width: 992px) {
+    tr.types th {
+        display: none;
+    }
+
+    tr.types td {
+        display: flex;
+        align-items: center;
+    }
+
+    tr.types td::before {
+        content: attr(data-cell);
+        padding: 10px;
+    }
+}
+
