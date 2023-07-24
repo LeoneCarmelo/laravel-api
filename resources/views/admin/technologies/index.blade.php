@@ -8,10 +8,10 @@
     <form action="{{route('admin.technologies.store')}}" method="post" enctype="multipart/form-data" class="d-flex  mt-2 mb-5">
         @csrf
         <div class="input-group mb-3 w-25 mx-auto py-3">
-            <input type="text" class="form-control" placeholder="Type name of technology" aria-label="Button" name="name" id="name">
+            <input type="text" class="form-control bg-transparent border-black" placeholder="Type name of technology" aria-label="Button" name="name" id="name">
         </div>
         <div class="input-group mb-3 w-25 mx-auto py-3">
-            <input type="file" class="form-control" placeholder="Insert link image" aria-label="Button" name="link_img" id="link_img">
+            <input type="file" class="form-control bg-transparent border-black file" placeholder="Insert link image" aria-label="Button" name="link_img" id="link_img">
         </div>
         <div class="input-group mb-3 w-25 mx-auto py-3">
             <input type="submit" class="form-control bg-dark text-white" aria-label="Button" value="Add">
@@ -31,15 +31,20 @@
                     </button>
                     <!-- Modal Body -->
                     <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
-                    <div class="modal fade" id="modal-{{$technology->slug}}" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitle-{{$technology->slug}}" aria-hidden="true">
+                    <div class="modal fade" id="modal-{{$technology->slug}}" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalName-{{$technology->slug}}" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="modalTitle-{{$technology->slug}}">Delete {{$technology->title}}</h5>
+                                    <h5 class="modal-name" id="modalName-{{$technology->slug}}">
+                                        <i class="fa-solid fa-spinner fa-spin mx-2"></i>
+                                        Deleting
+                                        <span class="fw-bold">{{$technology->name}}</span>
+                                    </h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    Are you sure?
+                                <img src="{{asset('storage/' . $technology->link_img)}}" alt="{{$technology->name}}" class="img-fluid mb-3" />
+                                    <span>Are you sure to delete <strong>{{$technology->name}}</strong>?</span>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

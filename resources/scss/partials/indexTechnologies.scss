@@ -1,0 +1,21 @@
+.overlay {
+    display: none;
+}
+
+i.fa-trash {
+    display: none;
+}
+
+
+.overlay:hover {
+    background-color: rgba(0, 0, 0, 0.76);
+    display: block;
+}
+
+.overlay:hover .fa-trash {
+    display: block;
+}
+
+input.file::file-selector-button {
+    background-color: transparent !important;
+}

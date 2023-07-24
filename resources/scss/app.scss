@@ -1,6 +1,7 @@
 @use './partials/indexProjects.scss';
 @use './partials/dashboard.scss';
 @use './partials/indexTypes.scss';
+@use './partials/indexTechnologies.scss';
 @import '~bootstrap/scss/bootstrap';
 
 #sidebarMenu {
@@ -45,21 +46,4 @@ main.col-md-9 {
     overflow-y: auto;
 }
 
-.overlay {
-    display: none;
-}
-
-i.fa-trash {
-    display: none;
-}
-
-
-.overlay:hover {
-    background-color: rgba(0, 0, 0, 0.904);
-    display: block;
-}
-
-.overlay:hover .fa-trash {
-    display: block;
-}
 
