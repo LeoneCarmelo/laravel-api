@@ -2,7 +2,29 @@
 @use './partials/dashboard.scss';
 @use './partials/indexTypes.scss';
 @use './partials/indexTechnologies.scss';
+@use './partials/login.scss';
+@use './root.scss' as *;
 @import '~bootstrap/scss/bootstrap';
+
+.text-blue {
+    color:$blue-first;
+}
+
+.text-blue-dark {
+    color:$blue-first-dark;
+}
+
+.bg-body {
+    background: radial-gradient(circle at 100% 55%, $black 0%, $blue-first 90%, $black 100%);
+}
+
+body {
+    background: radial-gradient(circle at 100% 55%, $black 0%, $blue-first 90%, $black 100%);
+}
+
+.nav-app {
+    height:70px;
+}
 
 #sidebarMenu {
     height: calc(100vh - 56px);
