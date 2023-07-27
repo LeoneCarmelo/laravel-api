@@ -18,6 +18,10 @@
     background: radial-gradient(circle at 100% 55%, $black 0%, $blue-first 90%, $black 100%);
 }
 
+.bg-error {
+    background: radial-gradient(circle at 100% 55%, $black 0%, $red-error 90%, $black 100%);
+}
+
 body {
     background: radial-gradient(circle at 100% 55%, $black 0%, $blue-first 90%, $black 100%);
 }
@@ -28,12 +32,12 @@ body {
 
 #sidebarMenu {
     height: calc(100vh - 56px);
-    background-color: #000;
+    background-color: $black;
 
 }
 
 #sidebarMenu ul li a:hover {
-    color: white !important;
+    color: $blue-first-darker !important;
 }
 
 li>i.fa-circle-dot {
@@ -43,7 +47,8 @@ li>i.fa-circle-dot {
 main.col-md-9 {
     height: calc(100vh - 56px);
     overflow-y: scroll;
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    //background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background: linear-gradient(-45deg,$blue-first, $blue-first-darker, $blue-secondary-light);
     animation: gradient 10s ease infinite;
 }
 

@@ -1,98 +1,96 @@
 @use '../root.scss' as *;
 
 .login {
-    height:calc(100vh - 70px);
-    background: radial-gradient(circle at 100% 55%, #000000 0%, #46ABFF 90%, #000000 100%);
+  height: calc(100vh - 70px);
 }
 
-.card.login {
-    box-shadow: 0 0 10px 1px $black;
-    transition: all 0.3s ease;
-    #email, #password {
-        background: transparent;
-        border:0;
-        border-radius: 0;
-        border-bottom:1px solid $black;
-    }
+.card {
+  box-shadow: 0 0 10px 1px $black;
+  transition: all 0.3s ease;
 
-    button:hover {
-        color:$blue-first;
-    }
+  #email,
+  #password {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    border-bottom: 1px solid $black;
+  }
 
-    &:hover {
-        box-shadow: none;
-    }
-} 
+  button:hover {
+    color: $blue-first;
+  }
+
+  &:hover {
+    box-shadow: none;
+    border: 0;
+  }
+}
 
 
 .check {
-    cursor: pointer;
-    position: relative;
-    margin: 0 0.5rem 8px;
-    width: 18px;
-    height: 18px;
-    -webkit-tap-highlight-color: transparent;
-    transform: translate3d(0, 0, 0);
-  }
-  
-  .check:before {
-    content: "";
-    position: absolute;
-    top: -15px;
-    left: -15px;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    //background: rgba(34,50,84,0.03);
-    opacity: 0;
-    transition: opacity 0.2s ease;
-  }
-  
-  .check svg {
-    position: relative;
-    z-index: 1;
-    fill: none;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke: $black;
-    stroke-width: 1.5;
-    transform: translate3d(0, 0, 0);
-    transition: all 0.2s ease;
-  }
-  
-  .check svg path {
-    stroke-dasharray: 60;
-    stroke-dashoffset: 0;
-  }
-  
-  .check svg polyline {
-    stroke-dasharray: 22;
-    stroke-dashoffset: 66;
-  }
-  
-  .check:hover:before {
-    opacity: 1;
-  }
-  
-  .check:hover svg {
-    stroke: $blue-first;
-  }
-  
-  #cbx:checked + .check svg {
-    stroke: $black;
-  }
-  
-  #cbx:checked + .check svg path {
-    stroke-dashoffset: 60;
-    transition: all 0.3s linear;
-  }
-  
-  #cbx:checked + .check svg polyline {
-    stroke-dashoffset: 42;
-    transition: all 0.2s linear;
-    transition-delay: 0.15s;
-  }
+  cursor: pointer;
+  position: relative;
+  margin: 0 0.5rem 8px;
+  width: 18px;
+  height: 18px;
+  -webkit-tap-highlight-color: transparent;
+  transform: translate3d(0, 0, 0);
+}
 
-  
+.check:before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  //background: rgba(34,50,84,0.03);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
 
+.check svg {
+  position: relative;
+  z-index: 1;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: $black;
+  stroke-width: 1.5;
+  transform: translate3d(0, 0, 0);
+  transition: all 0.2s ease;
+}
 
+.check svg path {
+  stroke-dasharray: 60;
+  stroke-dashoffset: 0;
+}
+
+.check svg polyline {
+  stroke-dasharray: 22;
+  stroke-dashoffset: 66;
+}
+
+.check:hover:before {
+  opacity: 1;
+}
+
+.check:hover svg {
+  stroke: $blue-first;
+}
+
+#cbx:checked+.check svg {
+  stroke: $black;
+}
+
+#cbx:checked+.check svg path {
+  stroke-dashoffset: 60;
+  transition: all 0.3s linear;
+}
+
+#cbx:checked+.check svg polyline {
+  stroke-dashoffset: 42;
+  transition: all 0.2s linear;
+  transition-delay: 0.15s;
+}

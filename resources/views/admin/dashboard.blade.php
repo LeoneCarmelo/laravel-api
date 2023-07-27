@@ -64,30 +64,30 @@
             <div class="position-sticky pt-3">
                 <ul class="nav flex-column">
                     <li class="nav-item d-flex align-items-center gap-2">
-                        <a class="nav-link active {{Route::currentRouteName() === 'admin.dashboard' ? 'text-white' : 'text-dark'}}" aria-current="page" href="{{route('admin.dashboard')}}">
+                        <a class="nav-link active {{Route::currentRouteName() === 'admin.dashboard' ? 'text-blue' : 'text-white'}}" aria-current="page" href="{{route('admin.dashboard')}}">
                             <span data-feather="home"></span>
-                            <i class="fa-solid fa-circle-dot me-3 {{Route::currentRouteName() === 'admin.dashboard' ? 'text-white' : 'text-dark'}}"></i>
+                            <i class="fa-solid fa-circle-dot me-3 {{Route::currentRouteName() === 'admin.dashboard' ? 'text-blue' : 'text-white'}}"></i>
                             Dashboard
                         </a>
                     </li>
                     <li class="nav-item d-flex align-items-center gap-2">
-                        <a class="nav-link {{Route::currentRouteName() === 'admin.projects.index' ? 'text-white' : 'text-dark'}}" href="{{route('admin.projects.index')}}">
+                        <a class="nav-link {{Route::currentRouteName() === 'admin.projects.index' ? 'text-blue' : 'text-white'}}" href="{{route('admin.projects.index')}}">
                             <span data-feather="file"></span>
-                            <i class="fa-solid fa-circle-dot me-3 {{Route::currentRouteName() === 'admin.projects.index' ? 'text-white' : 'text-dark'}}"></i>
+                            <i class="fa-solid fa-circle-dot me-3 {{Route::currentRouteName() === 'admin.projects.index' ? 'text-blue' : 'text-white'}}"></i>
                             Projects
                         </a>
                     </li>
                     <li class="nav-item d-flex align-items-center gap-2">
-                        <a class="nav-link {{Route::currentRouteName() === 'admin.types.index' ? 'text-white' : 'text-dark'}}" href="{{route('admin.types.index')}}">
+                        <a class="nav-link {{Route::currentRouteName() === 'admin.types.index' ? 'text-blue' : 'text-white'}}" href="{{route('admin.types.index')}}">
                             <span data-feather="shopping-cart"></span>
-                            <i class="fa-solid fa-circle-dot me-3 {{Route::currentRouteName() === 'admin.types.index' ? 'text-white' : 'text-dark'}}"></i>
+                            <i class="fa-solid fa-circle-dot me-3 {{Route::currentRouteName() === 'admin.types.index' ? 'text-blue' : 'text-white'}}"></i>
                             Types
                         </a>
                     </li>
                     <li class="nav-item d-flex align-items-center gap-2">
-                        <a class="nav-link {{Route::currentRouteName() === 'admin.technologies.index' ? 'text-white' : 'text-dark'}}" href="{{route('admin.technologies.index')}}">
+                        <a class="nav-link {{Route::currentRouteName() === 'admin.technologies.index' ? 'text-blue' : 'text-white'}}" href="{{route('admin.technologies.index')}}">
                             <span data-feather="shopping-cart"></span>
-                            <i class="fa-solid fa-circle-dot me-3 {{Route::currentRouteName() === 'admin.technologies.index' ? 'text-white' : 'text-dark'}}"></i>
+                            <i class="fa-solid fa-circle-dot me-3 {{Route::currentRouteName() === 'admin.technologies.index' ? 'text-blue' : 'text-white'}}"></i>
                             Technologies
                         </a>
                     </li>

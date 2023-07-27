@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card login w-75 mx-auto mt-5 pt-4">
+                <div class="card bg-body w-75 mx-auto mt-5 pt-4">
                     <div class="card-body">
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
@@ -46,7 +46,7 @@
                                     </label>
                                     <span class="mx-2 fs-5">/</span>
                                     @if (Route::has('password.request'))
-                                    <a class="text-blue-dark text-decoration-none" href="{{ route('password.request') }}">
+                                    <a class="text-blue-dark fw-semibold text-decoration-none" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                     @endif
