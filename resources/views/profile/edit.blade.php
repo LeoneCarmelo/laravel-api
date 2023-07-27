@@ -2,23 +2,20 @@
 @section('content')
 
 <div class="container">
-    <h2 class="text-dark my-4 fw-semibold">
-        {{ __('My Profile') }}
-    </h2>
-    <div class="card p-4 mb-4 bg-body shadow rounded-lg">
+    <div class="card p-4 mb-4 bg-conic shadow border-0 mt-5">
 
         @include('profile.partials.update-profile-information-form')
 
     </div>
 
-    <div class="card p-4 mb-4 bg-body shadow rounded-lg">
+    <div class="card p-4 mb-4 bg-conic shadow border-0">
 
 
         @include('profile.partials.update-password-form')
 
     </div>
 
-    <div class="card p-4 mb-4 bg-body shadow rounded-lg">
+    <div class="card p-4 mb-4 bg-conic shadow border-0">
 
 
         @include('profile.partials.delete-user-form')

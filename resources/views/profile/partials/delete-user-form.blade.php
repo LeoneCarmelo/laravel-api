@@ -1,6 +1,6 @@
 <section class="space-y-6">
     <header>
-        <h2 class="text-lg fw-semibold text-white">
+        <h2 class="text-lg fw-semibold text-light">
             {{ __('Delete Account') }}
         </h2>
 
@@ -10,7 +10,7 @@
     </header>
     <div class="d-flex justify-content-end align-items-center">
         <!-- Modal trigger button -->
-        <button type="button" class="btn bg-error text-light" data-bs-toggle="modal" data-bs-target="#delete-account">
+        <button type="button" class="btn fw-bold bg-error fs-3" data-bs-toggle="modal" data-bs-target="#delete-account">
             {{__('Delete Account')}}
         </button>
     
