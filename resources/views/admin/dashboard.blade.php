@@ -91,6 +91,13 @@
                             Technologies
                         </a>
                     </li>
+                    <li class="nav-item d-flex align-items-center gap-2">
+                        <a class="nav-link {{Route::currentRouteName() === 'admin.files.index' ? 'text-blue' : 'text-white'}}" href="{{route('admin.files.index')}}">
+                            <span data-feather="shopping-cart"></span>
+                            <i class="fa-solid fa-circle-dot me-3 {{Route::currentRouteName() === 'admin.files.index' ? 'text-blue' : 'text-white'}}"></i>
+                            Files
+                        </a>
+                    </li>
                 </ul>
             </div>
         </nav>

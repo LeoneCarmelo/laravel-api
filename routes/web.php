@@ -5,7 +5,11 @@ use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\Admin\TechnologyController;
+use App\Http\Controllers\Admin\FileController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,11 +26,15 @@ Route::get('/', function () {
     return view('auth/login');
 });
 
+
+
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::resource('projects', ProjectController::class)->parameters([ 'projects' => 'project:slug']);
+    Route::resource('projects', ProjectController::class)->parameters(['projects' => 'project:slug']);
     Route::resource('types', TypeController::class)->parameters(['types' => 'type:slug']);
     Route::resource('technologies', TechnologyController::class)->parameters(['technologies' => 'technology:slug']);
+    Route::get('/download/{file}', [FileController::class, 'download'])->name('download');
+    Route::resource('files', FileController::class)->parameters(['files' => 'file:name']);
 });
 
 Route::middleware('auth')->group(function () {
@@ -35,4 +43,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
