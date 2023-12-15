@@ -29,4 +29,16 @@ return [
         "name" => "Bootstrap",
         "link_img" => "images/bootstrap.svg.png",
     ],
+    [
+        "name" => "Sass",
+        "link_img" => "images/sass.png",
+    ],
+    [
+        "name" => "MySql",
+        "link_img" => "images/mysql.png",
+    ],
+    [
+        "name" => "GitHub",
+        "link_img" => "images/github.png",
+    ],
 ];

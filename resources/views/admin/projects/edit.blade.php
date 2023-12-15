@@ -16,10 +16,19 @@
     </div>
     @enderror
   </div>
-  <div class="mb-3">
-    <label for="image" class="form-label">Image</label>
-    <input type="file" name="image" id="image" class="form-control @error('image') is-invalid @enderror" placeholder="Image" aria-describedby="helpIdimage" value="{{old('image', $project->image)}}">
-    <small id="helpIdimage" class="text-muted">Edit a Image's link.</small>
+  <div class="mb-3 d-flex justify-content-between align-items-center">
+    <div class="w-50">
+      <label for="image" class="form-label">Image</label>
+      <input type="file" name="image" id="image" class="form-control @error('image') is-invalid @enderror" placeholder="Image" aria-describedby="helpIdimage" value="{{old('image', $project->image)}}">
+      <small id="helpIdimage" class="text-muted">Edit a Image's link.</small>
+    </div>
+    <div class="w-25 mx-auto">
+      @if (Str::contains($project->image, 'image'))
+      <img src="{{ asset('storage/' . $project->image) }}" class="card-img-top" alt="...">
+      @else
+      <img class="card-img-top rounded  mb-3" src="{{ $project->image }}" alt="">
+      @endif
+    </div>
     @error('image')
     <div class="alert alert-danger" role="alert">
       <strong>Error: </strong> {{$message}}
@@ -48,7 +57,7 @@
   </div>
   <div class="mb-3">
     <label for="link_website" class="form-label">Link website</label>
-    <input type="text" name="link_website" id="link_website" class="form-control @error('link_website') is-invalid @enderror" placeholder="" aria-describedby="helpIdlink_website"  value="{{old('link_website', $project->link_website)}}">
+    <input type="text" name="link_website" id="link_website" class="form-control @error('link_website') is-invalid @enderror" placeholder="" aria-describedby="helpIdlink_website" value="{{old('link_website', $project->link_website)}}">
     <small id="helpIdlink_website" class="text-muted">Insert the link of the website.</small>
     @error('link_website')
     <div class="alert alert-danger" role="alert">
