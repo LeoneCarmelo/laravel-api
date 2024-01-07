@@ -36,9 +36,11 @@ class LeadController extends Controller
         $new_lead = new Lead();
         $new_lead->fill($data);
         $new_lead->save();
-
-        // inviamo la mail all'admin del sito, passando il nuovo oggetto Lead
-        Mail::to('info@carmeloleone.dev')->send(new NewContact($new_lead));
+        
+        //My email address
+        $my_email = config('mail.my_address');
+        // inviamo la mail all'admin del sito, passando il nuovo oggetto Lead info@carmeloleone.dev
+        Mail::to($my_email)->send(new NewContact($new_lead));
 
         return response()->json([
             'success' => true,

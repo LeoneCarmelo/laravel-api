@@ -1,7 +1,7 @@
 <?php
 
 return [
-
+    'my_address' => env('MAIL_TO_ADDRESS', 'MAIL_TO_SECOND_ADDRESS'),
     /*
     |--------------------------------------------------------------------------
     | Default Mailer
@@ -91,8 +91,12 @@ return [
     |
     */
 
-    'from' => [
+/*     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
+        'name' => env('MAIL_FROM_NAME', 'Example'),
+    ], */
+    'from' => [
+        'address' => env('MAIL_USERNAME', 'carmeloleone@outlook.it'),
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
